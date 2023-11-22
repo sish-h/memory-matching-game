@@ -1,0 +1,92 @@
+.cyber-btn {
+	cursor: pointer;
+	font-family: 'Bebas Neue', cursive;
+	--primary: hsl(
+		var(--primary-hue),
+		85%,
+		calc(var(--primary-lightness, 50) * 1%)
+	);
+	--shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
+	--primary-hue: 0;
+	--primary-lightness: 50;
+	--color: hsl(0, 0%, 100%);
+	--font-size: 26px;
+	--shadow-primary-hue: 180;
+	--label-size: 9px;
+	--shadow-secondary-hue: 60;
+	--shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+	color: var(--color);
+	background: transparent;
+	text-transform: uppercase;
+	font-size: var(--font-size);
+	outline: transparent;
+	letter-spacing: 2px;
+	position: relative;
+	font-weight: 700;
+	border: 0;
+	min-width: 250px;
+	height: 60px;
+	line-height: 60px;
+	margin-bottom: 1rem;
+}
+
+.cyber-btn:after,
+.cyber-btn:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	clip-path: var(--clip);
+	z-index: -1;
+}
+
+.cyber-btn:before {
+	background: var(--shadow-primary);
+	transform: translate(var(--border), 0);
+}
+
+.cyber-btn:after {
+	background: var(--primary);
+}
+
+.cyber-btn__tag {
+	position: absolute;
+	padding: 1px 4px;
+	letter-spacing: 2.5px;
+	line-height: 1;
+	bottom: -5%;
+	right: 3.5%;
+	color: hsl(0, 0%, 90%);
+	font-size: var(--label-size);
+}
+
+.cyber-btn__glitch {
+	position: absolute;
+	top: calc(var(--border) * -1);
+	left: calc(var(--border) * -1);
+	right: calc(var(--border) * -1);
+	bottom: calc(var(--border) * -1);
+	background: var(--shadow-primary);
+	text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+	clip-path: var(--clip);
+	animation: glitch 2s infinite;
+	display: none;
+}
+
+.cyber-btn:hover .cyber-btn__glitch {
+	display: block;
+}
+
+.cyber-btn__glitch:before {
+	content: '';
+	position: absolute;
+	top: calc(var(--border) * 1);
+	right: calc(var(--border) * 1);
+	bottom: calc(var(--border) * 1);
+	left: calc(var(--border) * 1);
+	clip-path: var(--clip);
+	background: var(--primary);
+	z-index: -1;
+}

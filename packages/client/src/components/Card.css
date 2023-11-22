@@ -1,0 +1,49 @@
+.card {
+	position: relative;
+	cursor: pointer;
+}
+
+.invisible {
+	display: none;
+}
+
+.card-front {
+	background: gainsboro;
+	transform: rotateY(90deg);
+	transition: all ease-in 0.2s;
+}
+
+.flipped .card-front {
+	transform: rotateY(0deg);
+	transition-delay: 0.2s;
+}
+
+.card-back {
+	transition: all ease-in 0.2s;
+	transition-delay: 0.2s;
+}
+
+.flipped .card-back {
+	transform: rotateY(90deg);
+	transition-delay: 0s;
+}
+
+.card-glitch {
+	position: absolute;
+}
+
+.card-glitch-item {
+	position: absolute;
+	max-height: 16rem;
+	max-width: 8rem;
+}
+
+.card-glitch:hover .card-glitch-item:nth-child(2) {
+	background-color: var(--blend-color-1);
+	background-blend-mode: var(--blend-mode-1);
+	animation-duration: var(--time-anim);
+	animation-delay: var(--delay-anim);
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-name: glitch;
+}

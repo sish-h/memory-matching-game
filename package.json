@@ -1,0 +1,38 @@
+{
+	"name": "memory-matching-game",
+	"private": "true",
+	"workspaces": [
+		"packages/*"
+	],
+	"version": "0.1.0",
+	"author": "Baatchia Riyadh",
+	"license": "MIT",
+	"devDependencies": {
+		"concurrently": "^6.3.0",
+		"cspell": "^5.12.6",
+		"cz-conventional-changelog": "3.3.0",
+		"eslint": "7.32.0",
+		"husky": "^7.0.0",
+		"lerna": "^4.0.0",
+		"lint-staged": "^12.0.2",
+		"prettier": "^2.4.1"
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	},
+	"scripts": {
+		"client": "yarn workspace @memory-matching-game/client",
+		"server": "yarn workspace @memory-matching-game/server",
+		"build": "yarn server build && yarn client build",
+		"start": "yarn server start",
+		"build-concurrent": "concurrently \"yarn server build\" \"yarn client build\" --names \"server,client\"",
+		"start-concurrent": "concurrently \"yarn server start\" \"yarn client serve\" --names \"server,client\"",
+		"start-watch": "concurrently \"yarn server start-watch\" \"yarn client start\" -i --names \"server,client\"",
+		"start-watch-debug": "concurrently \"yarn server start-watch-debug\" \"yarn client start\" -i --names \"server,client\"",
+		"format-code": "prettier . --write --ignore-unknown",
+		"release": "lerna version --conventional-commits --create-release github",
+		"prepare": "husky install"
+	}
+}

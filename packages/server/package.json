@@ -1,0 +1,36 @@
+{
+	"name": "@memory-matching-game/server",
+	"version": "0.1.0",
+	"main": "dist/index.js",
+	"author": "Baatchia Riyadh",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.15.8",
+		"@babel/preset-env": "^7.15.8",
+		"@babel/preset-typescript": "^7.15.0",
+		"@types/express": "^4.17.13",
+		"@types/jest": "^27.0.2",
+		"@types/node": "^16.11.1",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"babel-jest": "^27.3.1",
+		"concurrently": "^6.3.0",
+		"eslint": "^8.0.1",
+		"jest": "^27.3.1",
+		"nodemon": "^2.0.14",
+		"typescript": "^4.4.4"
+	},
+	"scripts": {
+		"build": "tsc",
+		"build-watch": "tsc -w",
+		"start": "node dist/index.js",
+		"start-debug": "node --inspect dist/index.js",
+		"start-watch": "concurrently \"nodemon --watch dist dist/index.js\" \"yarn build-watch\" -i --names \"serve,build\"",
+		"start-watch-debug": "concurrently \"nodemon --watch dist --inspect dist/index.js\" \"yarn build-watch\" -i --names \"serve,build\"",
+		"test": "jest",
+		"test-watch": "jest --watchAll"
+	}
+}
